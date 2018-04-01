@@ -1,0 +1,86 @@
+<app-header></app-header>
+
+<!--start-contact-->
+<div class="map">
+  <div class="container">
+    <div class="map-top heading">
+      <h1>how to find us</h1>
+    </div>
+    <div class="map-bottom">
+      <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d80478.53306167186!2d5.31346505!3d50.924565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c12183ded75db7%3A0xf7cb7b027e7e2181!2sHasselt%2C+Belgium!5e0!3m2!1sen!2sin!4v1435227092642" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1865.064658437404!2d73.91491125427977!3d18.565012397120952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c146c4b78d8d%3A0xfd1f2b1727f1c724!2sViman+Pride%2C+Viman+Nagar+Rd%2C+Sakore+Nagar%2C+Viman+Nagar%2C+Pune%2C+Maharashtra+411014!5e0!3m2!1sen!2sin!4v1522507825212" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<!--end-contact-->
+<!--start-contact-->
+<div class="contact">
+  <div class="container">
+    <div class="contact-top heading">
+      <h2>CONTACT FORM</h2>
+      <p>Ut in pharetra enim. Donec condimentum euismod lorem dictum finibus. Suspendisse potenti. Nullam ac finibus ligula. Cras ac volutpat turpis, luctus egestas velit. Suspendisse tristique eleifend malesuada.  Vestibulum et dolor sed tortor tristique posuere ac vitae felis.</p>
+    </div>
+    <div class="contact-bottom">
+      <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)" novalidate>
+        <div class="col-md-6 contact-left">
+          <input type="text" placeholder="Name" #uname="ngModel" name="uname" ngModel minlength="2" required="">
+          <!-- <span>{{uname.className}}</span> -->
+          <div *ngIf="uname.errors && (uname.dirty || uname.touched)" class="alert alert-danger">
+            <div [hidden]="!uname.errors.required" >
+              Please enter your name
+            </div>
+            <div [hidden]="!uname.errors.minlength" >
+              Please enter atleast 2 characters
+            </div>
+          </div>
+
+
+          <input type="text" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #email="ngModel" name="email" ngModel required="">
+          <!-- <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+            Please enter your email address
+          </div> -->
+          <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+            <div [hidden]="!email.errors.required" >
+              Please enter your email address
+            </div>
+            <div [hidden]="!email.errors.pattern" >
+              Please enter valid email address
+            </div>
+          </div>
+
+          <input type="text" placeholder="Phone" pattern="^[1-9][0-9]{9}$" #phone="ngModel" name="phone" ngModel required="">
+          <!-- <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+            Please enter your phone number
+          </div> -->
+          <div *ngIf="phone.errors && (phone.dirty || phone.touched)" class="alert alert-danger">
+            <div [hidden]="!phone.errors.required" >
+              Please enter your phone number
+            </div>
+            <div [hidden]="!phone.errors.pattern" >
+              Please enter your 10 digit phone number
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 contact-left">
+            <textarea placeholder="Message" #message="ngModel" minlength="5" name="message" ngModel required=""></textarea>
+            <!-- <div [hidden]="message.valid || message.pristine" class="alert alert-danger">
+              Please enter your message
+            </div> -->
+            <div *ngIf="message.errors && (message.dirty || message.touched)" class="alert alert-danger">
+              <div [hidden]="!message.errors.required" >
+                Please enter your message
+              </div>
+              <div [hidden]="!message.errors.minlength" >
+                Please enter at least 5 characters!
+              </div>
+            </div>
+            <button [disabled]="!contactForm.form.valid" type="submit">SEND</button>
+        </div>
+      </form>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+</div>
+<!--end-contact-->
+
+<app-footer></app-footer>
