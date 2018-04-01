@@ -18,8 +18,8 @@ export class ContactComponent implements OnInit {
 
     // console.log(uname);
 
-    this.mailService.sendMail
-                    .subscribe(res => console.log(res));
+    this.mailService.sendMail()
+                    .subscribe(data => console.log(data));
   }
 
 }
